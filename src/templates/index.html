@@ -1,0 +1,41 @@
+<title>Kakusei Predict App</title>
+<style>
+#wrapper {
+    text-align: center;
+}
+</style>
+
+<div id="wrapper">
+  <h1>iPSAとCore%とISUP_Gradeを入力して、<br>
+        リンパ節転移の可能性を推測しよう</h1>
+  <form method="post">
+    {{ forms.csrf_token }}
+
+    {{ forms.PSA.label }}<br>
+    {{ forms.PSA }}<br>
+    {% for error in forms.PSA.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+    
+    {{ forms.T3.label }}<br>
+    {{ forms.T3 }}<br>
+    {% for error in forms.T3.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+    
+    {{ forms.CorePercent.label }}<br>
+    {{ forms.CorePercent }}<br>
+    {% for error in forms.CorePercent.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+    
+    {{ forms.IsupGrade.label }}<br>
+    {{ forms.IsupGrade }}<br>
+    {% for error in forms.IsupGrade.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+    
+    {{ forms.submit }}
+    
+  </form>
+</div>
