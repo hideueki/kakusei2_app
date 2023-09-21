@@ -7,7 +7,8 @@ import numpy as np
 #　学習済みモデルをもとに推論する関数
 def predict(x):
     # 学習済みモデル（kakusei.pkl）を読み込み
-    model = joblib.load('/Users/hideto/Desktop/kakusei_app/src/kakusei.pkl')
+    # model = joblib.load('/Users/hideto/Desktop/kakusei_app/src/kakusei.pkl')
+    model = joblib.load('./kakusei.pkl')
     x = x.reshape(1,-1)
     pred_label = model.predict(x)
     return pred_label
