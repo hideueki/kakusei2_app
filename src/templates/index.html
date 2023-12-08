@@ -6,35 +6,49 @@
 </style>
 
 <div id="wrapper">
-  <h1>iPSAとCore%とISUP_Gradeを入力して、<br>
-        リンパ節転移の可能性を推測しよう</h1>
+  <h1>Please enter patient infomation</h1>
+  <a>This is a logistic regression model with an AUC of 81%. A cutoff value of 23% is recommended.</a> 
+  
   <form method="post">
     {{ forms.csrf_token }}
 
+    {{ forms.NumberofPositiveCore.label }}<br>
+    {{ forms.NumberofPositiveCore }}<br>
+    {% for error in forms.NumberofPositiveCore.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+    
+    {{ forms.NumberofNegativeCore.label }}<br>
+    {{ forms.NumberofNegativeCore }}<br>
+    {% for error in forms.NumberofNegativeCore.errors %}
+    <div>{{ error }}</div>
+    {% endfor %}<br>
+    
     {{ forms.PSA.label }}<br>
     {{ forms.PSA }}<br>
     {% for error in forms.PSA.errors %}
     <div>{{ error }}</div>
     {% endfor %}<br>
     
-    {{ forms.T3.label }}<br>
-    {{ forms.T3 }}<br>
-    {% for error in forms.T3.errors %}
+    {{ forms.cT3.label }}<br>
+    {{ forms.cT3 }}<br>
+    {% for error in forms.cT3.errors %}
     <div>{{ error }}</div>
     {% endfor %}<br>
-    
-    {{ forms.CorePercent.label }}<br>
-    {{ forms.CorePercent }}<br>
-    {% for error in forms.CorePercent.errors %}
+
+    {{ forms.SecondaryGS.label }}<br>
+    {{ forms.SecondaryGS }}<br>
+    {% for error in forms.SecondaryGS.errors %}
     <div>{{ error }}</div>
     {% endfor %}<br>
-    
+
     {{ forms.IsupGrade.label }}<br>
     {{ forms.IsupGrade }}<br>
     {% for error in forms.IsupGrade.errors %}
     <div>{{ error }}</div>
     {% endfor %}<br>
-    
+   
+
     {{ forms.submit }}
     
   </form>
