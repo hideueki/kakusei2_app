@@ -7,8 +7,8 @@ import numpy as np
 #　学習済みモデルをもとに推論する関数
 def predict(x):
     # 学習済みモデル（kakusei.pkl）を読み込み
-    model = joblib.load('src/kakusei.pkl')
-    # model = joblib.load('./kakusei.pkl')
+    # model = joblib.load('src/kakusei.pkl')
+    model = joblib.load('./kakusei.pkl')
     x = x.reshape(1,-1)
     # pred_label = model.predict(x)
     proba = model.predict_proba(x)
@@ -90,7 +90,7 @@ def predicts():
 
     # GET 　メソッドの定義
     elif request.method == 'GET':
-        return render_template('index.html', forms=kakusei_form_instance)  # この行を変更
+        return render_template('index.html', forms=kakusei_form_instance) 
     
 # アプリケーションの実行
 if __name__ == '__main__':
